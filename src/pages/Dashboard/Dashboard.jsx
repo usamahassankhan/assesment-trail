@@ -3,9 +3,23 @@ import React from 'react';
 import './Dashboard.css';
 import { LaptopOutlined, NotificationOutlined, UserOutlined } from '@ant-design/icons';
 import { Layout, Menu, Card, Col, Row } from 'antd';
-
+import { useDispatch, useSelector } from "react-redux";
+import { setUser} from "../../redux/actons/authAction";
+import { Navigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 function Dashboard() {
+    const navigate = useNavigate();
+  let user = useSelector((state) => state);
+  const dispatch = useDispatch();
+const logoutFunction=()=>{
+    dispatch(setUser({
+        email:"",
+        auth:false
+      }));
+      navigate("/");
+      localStorage.removeItem("token")
+}
     const { Header, Footer, Sider, Content } = Layout;
     const items2 = [UserOutlined, LaptopOutlined, NotificationOutlined].map((icon, index) => {
         const key = String(index + 1);
@@ -33,7 +47,7 @@ function Dashboard() {
                     items={items2}
                 /></Sider>
                 <Layout>
-                    <Header className='header'>Assesment Trail Dashbaord</Header>
+                    <Header className='header'><div>{`Assesment Trail Dashbaord`}</div><div className="email-head"> {`${user.user.email || localStorage.getItem("email")  }`}</div><button className='logout' onClick={logoutFunction}>LogOut</button></Header>
                     <Content className='content-wrapper'><div className="site-card-wrapper">
                         <Row gutter={16}>
                             <Col span={8}>

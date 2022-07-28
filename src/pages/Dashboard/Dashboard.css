@@ -3,6 +3,8 @@
     background-color: #1f77b4 !important;
     color: white !important;
     font-size: 32px !important;
+    display: flex;
+    justify-content:center;
 }
 .content-wrapper{
     padding: 50px !important;
@@ -18,4 +20,45 @@
 box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 border-radius: 30px !important
  ;
+}
+.email-head{
+   display: flex;
+   justify-self: end;
+   margin-right: 0px;
+   justify-items: end;
+   background-color: white;
+   height: 40px;
+   align-items: center;
+    margin: auto;
+    border-radius: 10px;
+    padding: 0px 15px;
+    color:#1f77b4;
+    font-size: 20px;
+    padding-bottom: 0px ;
+    font-weight: bold;
+    width: 200px ;
+}
+.logout{
+    font-size: 20px ;
+    font-weight: bold;
+    background-color: white;
+    color:#1f77b4; 
+    height: 40px;
+    margin: auto 0;
+    text-align: center;
+    align-items:center; 
+    display: flex;
+    justify-self: end;
+    padding: 0px 15px;
+    border-radius: 10px;
+    border: 2px solid #1f77b4;
+
+}
+.logout:hover{
+   
+    background-color: #1f77b4;
+    color:white; 
+    border: 2px solid white;
+   
+
 }
