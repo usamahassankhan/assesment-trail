@@ -61,4 +61,14 @@ border-radius: 30px !important
     border: 2px solid white;
    
 
+
+}
+.logo{
+    height:50px;
+    width:100px;
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    margin-bottom:40px;
+
 }
