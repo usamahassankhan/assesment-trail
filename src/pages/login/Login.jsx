@@ -1,17 +1,14 @@
-import { Button, Form, Input, notification } from 'antd'
 import React, { useState } from 'react'
-import "./login.css"
 import axios from "axios";
-import { useDispatch, useSelector } from "react-redux";
-import { setUser } from "../../redux/actons/authAction";
+import "./login.css"
+import { Button, Form, Input, notification } from 'antd'
 import { useNavigate } from 'react-router-dom';
+import { useDispatch } from "react-redux";
+import { setUser } from "../../redux/actons/authAction";
 
 const Login = () => {
   const navigate = useNavigate();
-  // const products = useSelector((state) => state.allProducts.products);
-
   const dispatch = useDispatch();
-  let user = useSelector((state) => state);
   const [loadState, setLoadState] = useState(false);
   const openNotificationWithIcon = (type, msg) => {
     notification[type]({
@@ -19,8 +16,6 @@ const Login = () => {
       description: "",
     });
   };
-console.log(loadState,"ss")
-
   const onFinish = (values) => {
     axios.post('https://reqres.in/api/login', {
       email: values.email,
@@ -34,7 +29,7 @@ console.log(loadState,"ss")
         }));
         setLoadState(true)
         openNotificationWithIcon('success', "Login Successfully")
-         navigate('/dashboard');
+        navigate('/');
         localStorage.setItem("token", response.data.token);
         localStorage.setItem("email", values.email);
 
@@ -42,15 +37,11 @@ console.log(loadState,"ss")
       })
       .catch(err => {
         openNotificationWithIcon('error', err.message)
-        console.log("er", err.message)
         alert(err.message)
       })
   };
-  console.log(user.user.token, "fetchfromreduc");
-  console.log(user.user.auth, "auth");
   const onFinishFailed = (errorInfo) => {
     openNotificationWithIcon('error', errorInfo)
-    console.log("errpor", errorInfo)
   };
   const validatePassword = (rule, value, callback) => {
 

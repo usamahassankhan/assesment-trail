@@ -1,17 +1,15 @@
 
 import React from 'react';
-import logo from '../../../src/assets/lo.jpg';
 import './Dashboard.css';
-import { useNavigate } from 'react-router-dom';
-import { AppstoreOutlined, FlagOutlined } from '@ant-design/icons';
+import { AppstoreOutlined,FlagOutlined } from '@ant-design/icons';
 import { Layout, Menu,notification } from 'antd';
-import Cards from '../../Components/Cards/Cards';
+import Countries from '../../Components/Countries/Countries';
+import logo from '../../../src/assets/lo.jpg';
 import { useDispatch, useSelector } from "react-redux";
 import { setUser } from "../../redux/actons/authAction";
-
+import { useNavigate } from 'react-router-dom';
 
 function Dashboard() {
-    ;
     const navigate = useNavigate();
     let user = useSelector((state) => state);
     const dispatch = useDispatch();
@@ -36,7 +34,8 @@ function Dashboard() {
         <div className="App">
             <Layout>
                 <Sider>
-                    <Menu
+
+                <Menu
                         style={{ height: '100%' }}
                     >
                         <img src={logo} alt="flag" className="logo" />
@@ -55,8 +54,9 @@ function Dashboard() {
                 <Layout>
                     <Header className='header'><div>{`Assesment Trail Dashbaord`}</div><div className="email-head"> {`${user.user.email || localStorage.getItem("email")}`}</div><button className='logout' onClick={logoutFunction}>LogOut</button></Header>
                     <Content className='content-wrapper'>
-                        <Cards />
+                        <Countries />
                     </Content>
+
                 </Layout>
             </Layout>
         </div>

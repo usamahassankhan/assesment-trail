@@ -1,21 +1,38 @@
 .countries{
-    background-color: beige;
+    background-color: white;
     color: black;
-    padding:10px;
-    margin: 20px 0px;
+    padding:6px 10px;
+    margin: 10px 10px;
     display: flex;
     justify-content: space-between;
     text-transform: capitalize;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 10px;
+    
 
 }
 .button-wrap{
     display: flex;
-    /* justify-content: space-between; */
     gap: 20px;
+}
+.button-wrap button{
+    background-color: white;
+    border: 2px solid #1f77b4;
+    color :#1f77b4;
+    font-weight:500;
+    border-radius: 10px;
+
+}
+.button-wrap button:hover{
+    background-color: #1f77b4;
+    border: 2px solid white;
+    color :white;
+    font-weight:500;
+    border-radius: 10px;
+    
 }
 .button-wrap-countries-cities{
     display: flex;
-    /* justify-content: space-between; */
     gap: 20px;
     margin: 3px 0px;
 
@@ -24,9 +41,50 @@
     display: flex;
     justify-content: space-between;
     text-transform: capitalize;
-    margin: 30px 0px ;
+    margin: 5px 0px ;
 }
 .flag{
     width: 30px;
     height: 30px;
 }
+.accordionCountries{
+    height: 66vh !important;
+    overflow-y: scroll;
+}
+.ant-collapse-header {
+    border-radius: 0 0 2px 2px !important;
+    color: black !important;
+    font-size: 1.1em !important;
+    /* margin: -7px 0px; */
+    background: white !important;
+    border: none !important;
+    border-radius: 14px !important;
+    font-weight: 500;
+    
+    }
+    .ant-collapse-item {
+        border-bottom: 1px solid #d9d9d9;
+        margin: 10px 0px;
+        border-radius: 10px;
+    border: none !important;
+    border-radius: 14px !important;}
+    .ant-collapse{
+   border: none !important;
+   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+   text-transform: capitalize;
+   margin: 0px 20px !important;
+   border-radius: 14px !important;
+    }
+
+    
+    .nameWithImg{
+        display: flex;
+        gap:10px;
+        align-items: center;
+    }
+    .nameWithImg p{
+       font-size: 12px;
+       font-weight: 700;
+       padding: 0;
+       margin: 0;
+    }

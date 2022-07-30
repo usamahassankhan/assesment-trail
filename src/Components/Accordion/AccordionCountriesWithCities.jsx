@@ -2,78 +2,34 @@ import React from 'react';
 import { Collapse } from 'antd';
 import './AccordionCountries.css'
 import flag from '../../../src/assets/united.png';
+import {countryData} from './../../../src/data'
+
 function AccordionCountriesWithCities() {
   const { Panel } = Collapse;
-    let countryArray = [
-        { coyntryName: "afghanistan", citites: ["kabul", "gaaaf", "dan", "dafcc"] },
-        { coyntryName: "land Island", citites: ["pabul", "apa", "bdab", "ccat"] },
-        { coyntryName: "Albania", citites: ["falco", "daa", "sadbb", "facc"] },
-        { coyntryName: "Algeria", citites: ["gdas", "aads", "dsa", "cddc"] },
-        { coyntryName: "Samoa", citites: ["fabs", "asdsaa", "asdbb", "cac"] },
-        { coyntryName: "AndorrA", citites: ["pakabul", "faaa", "fabb", "dascc"] },
-        { coyntryName: "Angola", citites: ["faskabul", "ada", "abb", "cdac"] },
-        { coyntryName: "Anguilla", citites: ["kdaabul", "adsaa", "fgbb", "cat"] },
-        { coyntryName: "Antarctica", citites: ["deli", "mumdbai", "udsap"] },
-        { coyntryName: "Antigua", citites: ["gat", "gert", "udsap"] },
-        { coyntryName: "Argentina", citites: ["mehli", "numbai", "pup"] },
-        { coyntryName: "Armenia", citites: ["lehli", "lumbai", "rup"] },
-        { coyntryName: "Aruba", citites: ["sehli", "mumbai", "uep"] },
-        { coyntryName: "Australia", citites: ["pehli"] },
-        { coyntryName: "Austria", citites: [ "sumbai"] },
-        { coyntryName: "Azerbaijan", citites: [ "dumbai"] },
-         { coyntryName: "Bahamas", citites: [ "gumbai"] },
-          { coyntryName: "Bangladesh", citites: [ "humbai"] },
-          { coyntryName: "Czech", citites: [ "lumbai"] },
-          { coyntryName: "Dominican", citites: [ "kumbai"] },
-          { coyntryName: "Ecuador", citites: [ "oumbai"] },
-          { coyntryName: "Egypt", citites: [ "lumbai"] },
-          { coyntryName: "France", citites: [ "tumbai"] },
-          { coyntryName: "Gambia", citites: [ "eumbai"] },
-          { coyntryName: "Hungary", citites: [ "rumbai"] },
-          { coyntryName: "Iceland", citites: [ "gumbai"] },
-          { coyntryName: "India", citites: [ "lumbai", "up"] },
-          { coyntryName: "Jordan", citites: [ "saumbai", "up"] },
-          { coyntryName: "Kiribati", citites: [ "saumbai", "up"] },
-          { coyntryName: "Latvia", citites: [ "msaumbai", "up"] },
-          { coyntryName: "Malawi", citites: [ "mudmbai", "up"] },
-          { coyntryName: "Nauru", citites: [ "mumbddai", "fup"] },
-            { coyntryName: "Oman", citites: [ "mumbadai", "fup"] },  { coyntryName: "Malawi", citites: [ "kokla", "saup"] },
-            { coyntryName: "Philippines", citites: [ "emumbai", "sup"] },
-            { coyntryName: "Qatar", citites: [ "eamumbai", "rup"] },
-            { coyntryName: "Reunion", citites: [ "samumbai", "gup"] },
-            { coyntryName: "Saint", citites: [ "mudsmbai", "fup"] },
-            { coyntryName: "Tunisia", citites: [ "mudsmbai", "fup"] },
-            { coyntryName: "Uzbekistan", citites: [ "sdasmumbai", "dup"] },
-            { coyntryName: "Venezuela", citites: [ "pomumbai", "vup"] },
-            { coyntryName: "Wallis", citites: [ "medamumbai", "cup"] },
-            { coyntryName: "Yemen", citites: [ "dsmumbai", "bup"] },
-            { coyntryName: "Zimbabwe", citites: [ "kamumbai", "aup"] },
-
-      ];
-      console.log("countryArray", countryArray);
-    
-      function myfunction(city){
-        console.log("city: ",city)
-      }
+   function btnFunction(download,city){
+    alert("do you want to download "+ download + " information from " + city)
+   }
   return (
-    <>
-    {countryArray?.map((c) => (
+    <div className='accordionCountries'>
+    {countryData?.map((c) => (
         <Collapse defaultActiveKey={["1"]}>
-          <Panel header={c?.coyntryName} key="2">
+          <Panel header={c?.countryName} key="2">
             {c?.citites?.map((city) => (
               <div className='cities-wrap'>
-                <img src={flag} className="flag"/>
-              <p className="block" onClick={()=>myfunction(city) }>{city}</p>
-              <div className='button-wrap-countries-cities'>
-                <button>Download tcp</button>
-                <button>Download udp</button>
+                <div className='nameWithImg'>
+                <img src={flag} alt="flag" className="flag"/>
+              <p className="block">{city}</p>
+              </div>
+              <div className='button-wrap-countries-cities button-wrap'>
+                <button onClick={()=>btnFunction("download tcp",city)}>Download tcp</button>
+                <button onClick={()=>btnFunction("download udp",city)}>Download udp</button>
               </div>
               </div>
             ))}
           </Panel>
         </Collapse>
       ))}
-      </>
+      </div>
   )
 }
 

@@ -1,19 +1,18 @@
 
 import React from 'react';
-import { Layout, Menu,Card, Col, Row, Tabs } from 'antd';
-import { AndroidOutlined, AppleOutlined } from '@ant-design/icons';
-import Accordion from '../Accordion/AccordionCountriesWithCities';
+import { Tabs } from 'antd';
+import { FlagOutlined,BankFilled  } from '@ant-design/icons';
 import AccordionCountries from '../Accordion/AccordionCountries';
 import AccordionCountriesWithCities from '../Accordion/AccordionCountriesWithCities';
 function Cards() {
     const { TabPane } = Tabs;
   return (
     <div className="site-card-wrapper">
-  <Tabs defaultActiveKey="2">
+  <Tabs defaultActiveKey="1">
     <TabPane
       tab={
         <span>
-          <AppleOutlined />
+          <FlagOutlined />
         Countries
         </span>
       }
@@ -24,7 +23,7 @@ function Cards() {
     <TabPane
       tab={
         <span>
-          <AndroidOutlined />
+          <BankFilled />
           Cities
         </span>
       }
