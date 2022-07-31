@@ -59,7 +59,6 @@ function Dashboard() {
           <Header className="header">
             <div>{`Assesment Trail Dashbaord`}</div>
             <div className="email-head">
-              {" "}
               {`${user.user.email || localStorage.getItem("email")}`}
             </div>
             <button className="logout" onClick={logoutFunction}>

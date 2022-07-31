@@ -13,7 +13,7 @@ function Dashboard() {
   const navigate = useNavigate();
   let user = useSelector((state) => state);
   let users = useSelector((state) => state.dashboard);
-  // console.log(users?.data?.data[0].first_name, "Ss");
+
   const dispatch = useDispatch();
   const openNotificationWithIcon = (type, msg) => {
     notification[type]({
@@ -82,11 +82,6 @@ function Dashboard() {
                 src={userInfo.avatar}
               />
             ))}
-            {/* <Cards
-              email={users?.data?.data[0].first_name}
-              firstname={users?.data?.data[0].first_name}
-              lastname={users?.data?.data[0].first_name}
-            /> */}
           </Content>
         </Layout>
       </Layout>
